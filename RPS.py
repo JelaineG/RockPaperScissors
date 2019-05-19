@@ -9,6 +9,7 @@ moves = ['rock', 'paper', 'scissors']
 """The Player class is the parent class for all of the Players
 in this game"""
 
+
 class Player:
     def move(self):
         return "rock"
@@ -16,10 +17,11 @@ class Player:
     def learn(self, my_move, their_move):
         pass
 
+
 class RandomPlayer(Player):
     def move(self):
         return random.choice(moves)
- 
+
 
 class HumanPlayer(Player):
     def move(self):
@@ -32,13 +34,13 @@ class HumanPlayer(Player):
 class ReflectPlayer(Player):
     def __init__(self):
         self.my_move = "rock"
-        
+
     def move(self):
         return self.my_move
 
     def learn(self, my_move, their_move):
         self.my_move = their_move
-      
+
 
 class CyclePlayer(Player):
     current_move_index = 0
@@ -48,6 +50,7 @@ class CyclePlayer(Player):
         self.current_move_index = \
             (self.current_move_index + 1) % len(moves)
         return next_move
+
 
 def beats(one, two):
     return ((one == 'rock' and two == 'scissors') or
@@ -59,7 +62,7 @@ class Game:
     def __init__(self, p1, p2):
         self.p1 = p1
         self.p2 = p2
-        self.scores = {"p1":0, "p2":0}
+        self.scores = {"p1": 0, "p2": 0}
 
     def play_round(self):
         move1 = self.p1.move()
@@ -77,8 +80,9 @@ class Game:
             print("Player Two wins!")
         else:
             print("***TIE***")
-        print(f"SCORE: Player One: {self.scores['p1']}, Player Two: {self.scores['p2']}")
-            
+        print(f"SCORE: Player One: {self.scores['p1']},
+              Player Two: {self.scores['p2']}")
+
     def play_game(self):
         print("Game start!")
         for round in range(3):
