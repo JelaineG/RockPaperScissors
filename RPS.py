@@ -80,8 +80,8 @@ class Game:
             print("Player Two wins!")
         else:
             print("***TIE***")
-        print(f"SCORE: Player One: {self.scores['p1']},
-              Player Two: {self.scores['p2']}")
+        print(f"SCORE: Player One: {self.scores['p1']}, \
+        Player Two: {self.scores['p2']}")
 
     def play_game(self):
         print("Game start!")
